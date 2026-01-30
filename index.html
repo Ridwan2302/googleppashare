@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation WhatsApp - Google PPA</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --google-blue: #4285F4;
+            --google-green: #34A853;
+            --google-yellow: #FBBC05;
+            --google-gray-100: #F8F9FA;
+            --google-gray-200: #E8EAED;
+            --google-gray-700: #5F6368;
+            --google-gray-900: #202124;
+            --white: #FFFFFF;
+            --whatsapp-green: #25D366;
+            --whatsapp-green-dark: #128C7E;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-full: 50px;
+            --shadow-md: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
+            --shadow-lg: 0 2px 6px 2px rgba(60,64,67,0.15);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--google-gray-100);
+            color: var(--google-gray-900);
+            line-height: 1.6;
+            font-weight: 400;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .container {
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .card {
+            background-color: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 48px 32px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--google-gray-200);
+        }
+
+        .icon-success {
+            width: 80px;
+            height: 80px;
+            background-color: var(--google-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 32px;
+            color: white;
+            font-size: 36px;
+            animation: bounce 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-20px);}
+            60% {transform: translateY(-10px);}
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 24px;
+        }
+
+        .logo-dots {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+
+        .logo-dots span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .blue-dot { background-color: var(--google-blue); }
+        .green-dot { background-color: var(--google-green); }
+        .yellow-dot { background-color: var(--google-yellow); }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 500;
+        }
+
+        .logo-text span {
+            color: var(--google-blue);
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 16px;
+            color: var(--google-gray-900);
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--google-gray-700);
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .message {
+            font-size: 16px;
+            color: var(--google-gray-700);
+            margin-bottom: 24px;
+            line-height: 1.5;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .highlight-box {
+            background-color: rgba(52, 168, 83, 0.08);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin: 32px 0;
+            border: 1px solid rgba(52, 168, 83, 0.2);
+        }
+
+        .highlight-text {
+            color: var(--google-gray-900);
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .detail-text {
+            color: var(--google-gray-700);
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .whatsapp-button {
+            background-color: var(--whatsapp-green-dark);
+            color: white;
+            border: none;
+            border-radius: var(--radius-full);
+            padding: 16px 40px;
+            font-size: 17px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            margin: 24px auto;
+            width: auto;
+            max-width: 300px;
+        }
+
+        .whatsapp-button:hover {
+            background-color: var(--whatsapp-green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .whatsapp-button:active {
+            transform: translateY(0);
+        }
+
+        .whatsapp-icon {
+            font-size: 22px;
+        }
+
+        .verification-box {
+            background-color: var(--google-gray-100);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            margin: 32px 0 24px;
+            border: 1px solid var(--google-gray-200);
+        }
+
+        .verification-title {
+            color: var(--google-gray-900);
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .verification-text {
+            color: var(--google-gray-700);
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .note {
+            font-size: 14px;
+            color: var(--google-gray-700);
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--google-gray-200);
+            line-height: 1.4;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 13px;
+            color: var(--google-gray-700);
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                padding: 40px 24px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .message {
+                font-size: 15px;
+            }
+            
+            .whatsapp-button {
+                padding: 14px 32px;
+                font-size: 16px;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 16px;
+            }
+            
+            .card {
+                padding: 32px 20px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .icon-success {
+                width: 70px;
+                height: 70px;
+                font-size: 30px;
+            }
+            
+            .whatsapp-button {
+                padding: 12px 28px;
+                font-size: 15px;
+                max-width: 260px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="logo">
+                <div class="logo-dots">
+                    <span class="blue-dot"></span>
+                    <span class="green-dot"></span>
+                    <span class="yellow-dot"></span>
+                </div>
+                <div class="logo-text">Google <span>PPA</span></div>
+            </div>
+            
+            <div class="icon-success">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <h1>Tâche complétée avec succès</h1>
+            
+            <p class="subtitle">Félicitations ! Votre rémunération a été enregistrée</p>
+            
+            <p class="message">
+                Vous avez terminé votre première mission. Vos gains sont maintenant en attente dans votre compte Google PPA.
+            </p>
+            
+            <div class="highlight-box">
+                <p class="highlight-text">Activez votre compte</p>
+                <p class="detail-text">Cette étape est requise une seule fois pour valider vote compte.</p>
+            </div>
+            
+            <p class="message">
+                Pour l'activation de votre compte partagez Google PPA avec 5 contacts sur WhatsApp.
+            </p>
+            
+            <a href="https://wa.me/?text=https://googleppa.vercel.app/"
+               class="whatsapp-button"
+               target="_blank">
+                <i class="fab fa-whatsapp whatsapp-icon"></i>
+                Partager sur WhatsApp
+            </a>
+            
+            <div class="verification-box">
+                <p class="verification-title">Vérification en cours</p>
+                <p class="verification-text">Votre partage sera vérifié dans les 24 heures. Une fois confirmé, votre compte sera automatiquement activé et vous pourrez effectuer des retraits dès que vous le souhaitez.</p>
+            </div>
+            
+            <p class="note">
+                Ce partage permet d'agrandir la communauté Google PPA et d'offrir plus d'opportunités à tous les membres.
+            </p>
+            
+            <div class="footer">
+                Google PPA • Plateforme de rémunération par action
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Animation supplémentaire pour les éléments
+        document.addEventListener('DOMContentLoaded', function() {
+            const elements = document.querySelectorAll('h1, .subtitle, .message, .highlight-box, .whatsapp-button, .verification-box');
+            
+            elements.forEach((element, index) => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, 100 + (index * 100));
+            });
+        });
+
+        // Animation subtile pour le bouton WhatsApp
+        setTimeout(() => {
+            const button = document.querySelector('.whatsapp-button');
+            button.style.animation = 'pulse 2s infinite';
+            
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes pulse {
+                    0% { transform: scale(1); }
+                    50% { transform: scale(1.02); }
+                    100% { transform: scale(1); }
+                }
+            `;
+            document.head.appendChild(style);
+        }, 1500);
+    </script>
+</body>
+</html>
